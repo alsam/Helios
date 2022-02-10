@@ -1,0 +1,25 @@
+[package]
+name = "helios"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+structopt = "*"
+serde = "*"
+serde_json = "*"
+
+[dependencies.heliocron]
+path = "heliocron"
+
+[package.metadata.deb]
+maintainer = "Alexander Samoilov <alexander.samoilov@hayden.ai>"
+copyright = "2022, Alexander Samoilov <alexander.samoilov@hayden.ai>"
+license-file = ["LICENSE", "4"]
+depends = "$auto"
+section = "utility"
+priority = "optional"
+assets = [
+    ["target/release/helios", "usr/local/bin/", "755"],
+    ["heliocron/target/release/heliocron", "usr/local/bin/", "755"],
+    ["README.md", "usr/local/share/doc/helios/README", "644"],
+]
